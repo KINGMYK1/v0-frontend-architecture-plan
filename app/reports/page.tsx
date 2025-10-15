@@ -1,20 +1,7 @@
 "use client"
 
-import { MainLayout } from "@/components/layout/main-layout"
+import { AuditReport } from "@/components/reports/audit-report"
 
 export default function ReportsPage() {
-  return (
-    <MainLayout>
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Rapports</h1>
-          <p className="text-muted-foreground">Rapports d'audit et analyses</p>
-        </div>
-
-        <div className="rounded-lg border border-border bg-card p-6">
-          <div className="h-96 animate-pulse rounded bg-muted" />
-        </div>
-      </div>
-    </MainLayout>
-  )
+  return <AuditReport clientId="3" clientName="ABC Corporation" />
 }

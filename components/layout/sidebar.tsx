@@ -9,11 +9,12 @@ import {
   LayoutDashboard,
   Building2,
   AlertTriangle,
-  FileText,
   Settings,
   Shield,
   ChevronLeft,
   ChevronRight,
+  User,
+  Users,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -34,9 +35,15 @@ const navItems = [
     icon: AlertTriangle,
   },
   {
-    title: "Rapports",
-    href: "/reports",
-    icon: FileText,
+    title: "Profil",
+    href: "/profile",
+    icon: User,
+  },
+  {
+    title: "Utilisateurs",
+    href: "/users",
+    icon: Users,
+    roles: ["ADMIN"],
   },
   {
     title: "Administration",

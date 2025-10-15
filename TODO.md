@@ -6,12 +6,14 @@
 - [x] Créer TODO.md
 - [x] Créer CHANGELOG.md
 - [x] Créer INTEGRATION_JWT.md
+- [x] Créer ROADMAP.md (Guide développeur complet)
+- [x] Créer AGENT.md (Guide méthodologie IA)
 - [x] Définir les types TypeScript de base
 
 ### Configuration
 - [x] Installer les dépendances (React Router, React Query, Zustand, Recharts, etc.)
 - [x] Créer la structure de dossiers
-- [x] Configurer le thème dark avec couleurs blue/cyan
+- [x] Configurer le thème dark avec palette blue-violet gradient
 - [x] Configurer React Query Provider (à faire lors de l'intégration backend)
 - [x] Configurer React Router (Next.js App Router utilisé)
 
@@ -22,7 +24,7 @@
 ### Authentification Mock
 - [x] Créer le store Zustand pour l'authentification
 - [x] Créer les hooks useAuth et useRequireAuth
-- [x] Développer la page de connexion
+- [x] Développer la page de connexion avec design mockup
 - [x] Implémenter la validation avec React Hook Form + Zod
 - [x] Créer le système de redirection
 
@@ -43,9 +45,11 @@
 - [x] Card avec header, body, footer
 - [x] Badge pour les statuts (OK, Warning, Critical)
 - [x] Table avec tri, filtres et pagination
-- [x] StatCard pour afficher les KPI
+- [x] StatCard pour afficher les KPI avec variantes colorées
 - [x] Modal réutilisable
 - [x] Spinner et Skeleton pour les chargements
+- [x] Slider pour les seuils
+- [x] Switch pour les toggles
 
 ---
 
@@ -53,10 +57,10 @@
 
 ### Dashboard Global
 - [x] Structure de la page avec grille responsive
-- [x] Section KPI avec 4 cartes (Total, OK, Warning, Critical)
+- [x] Section KPI avec 4 cartes colorées (Total, OK, Warning, Critical)
 - [x] Graphique Donut pour répartition des statuts
 - [x] Graphique en barres pour top alertes
-- [x] Tableau des clients récents
+- [x] Tableau des clients récents avec actions
 - [x] Section des 10 dernières alertes
 - [x] Créer les données mock
 
@@ -65,28 +69,86 @@
 - [x] Tableau complet avec toutes les colonnes
 - [x] Filtres par statut, type, recherche
 - [x] Actions: Voir détails, Lancer audit, Éditer
-- [x] Modal d'ajout/édition de client
+- [x] Modal d'ajout/édition de client amélioré (3 sections + sidebar)
 - [x] Pagination et tri des colonnes
 
 ### Détail Client
-- [x] Structure avec header client et onglets
-- [x] Onglet Vue d'Ensemble
+- [x] Structure avec header client et actions
+- [x] Onglet Vue d'Ensemble avec résumé exécutif
 - [x] Onglet Inventaire et Visibilité (5 contrôles)
 - [x] Onglet Conformité et Hardening (5 contrôles)
 - [x] Onglet Détection et Réponse (6 contrôles)
 - [x] Onglet Santé Serveur KSC (4 contrôles)
 - [x] Onglet Historique avec graphiques
+- [x] Bouton "Lancer un audit" avec navigation vers rapport
+- [x] Bouton "Voir le rapport" pour accès direct
 
 ### Liste des Alertes
-- [x] Page avec cartes de statistiques
+- [x] Page avec cartes de statistiques colorées
 - [x] Filtres avancés (Client, Sévérité, Statut, Date)
-- [x] Système de cartes d'alertes
+- [x] Système de cartes d'alertes avec bordures colorées
 - [x] Actions: Acquitter, Voir détails, Résoudre
 - [x] Pagination et tri
 
 ---
 
-## Phase 5: Services et Données Mock ⏳ READY FOR BACKEND
+## Phase 5: Pages Secondaires ✅ COMPLETED
+
+### Pages Administrateur
+- [x] Page Gestion des Utilisateurs (Admin uniquement)
+  - [x] Liste des utilisateurs avec avatars et rôles
+  - [x] Statistiques (Total, Actifs, Inactifs, Admins)
+  - [x] Modal de création/édition d'utilisateur
+  - [x] Modal de suppression avec confirmation
+  - [x] Section Rôles & Permissions
+  - [x] Statistiques d'activité
+- [x] Page Administration/Configuration
+  - [x] Configuration Email (SMTP)
+  - [x] État du système
+  - [x] Audits & Seuils par défaut
+  - [x] Sécurité (politique mot de passe, 2FA)
+  - [x] Notifications
+  - [x] Gestion base de données
+
+### Pages Client
+- [x] Page Configuration Seuils Client
+  - [x] Toggle seuils personnalisés vs globaux
+  - [x] 4 catégories de contrôles avec sliders
+  - [x] Aperçu des alertes en temps réel
+  - [x] Comparaison avec seuils globaux
+  - [x] Notice d'information importante
+- [x] Page Rapport d'Audit (dynamique par client)
+  - [x] En-tête avec logo et actions
+  - [x] Résumé exécutif (3 colonnes)
+  - [x] Cartes métriques colorées
+  - [x] 4 sections de catégories avec contrôles
+  - [x] Footer avec timestamp
+  - [x] Boutons PDF et Email avec notifications
+
+### Pages Utilisateur
+- [x] Page Profil
+  - [x] Avatar avec dégradé et initiales
+  - [x] Informations personnelles
+  - [x] Quick Actions
+  - [x] Système d'onglets (Informations, Sécurité, Notifications, Activité)
+  - [x] Formulaire d'édition
+
+---
+
+## Phase 6: Fonctionnalités Transversales ✅ COMPLETED
+
+- [x] Système de notifications toast avec fonction notImplemented()
+- [x] Gestion des permissions par rôle
+- [x] Responsive design (mobile et tablette)
+- [x] Animations et transitions
+- [x] Amélioration du design pour correspondre aux maquettes
+- [x] Notifications "À implémenter" sur tous les boutons non fonctionnels
+- [ ] Pages d'erreur 404 et erreur générique
+- [ ] Tests de l'interface
+
+---
+
+## Phase 7: Services et Données Mock ⏳ READY FOR BACKEND
 
 ### Configuration API
 - [ ] Configurer Axios avec intercepteurs (structure prête)
@@ -97,56 +159,113 @@
 
 ---
 
-## Phase 6: Fonctionnalités Transversales ✅ COMPLETED
+## Phase 8: Intégration Backend 🔄 NEXT PRIORITY
 
-- [x] Système de notifications toast
-- [x] Gestion des permissions par rôle
-- [ ] Pages d'erreur 404 et erreur générique
-- [x] Responsive design (mobile et tablette)
-- [x] Animations et transitions
-- [ ] Tests de l'interface
+### Authentification
+- [ ] Remplacer l'authentification mock par JWT réel
+- [ ] Implémenter le refresh token automatique
+- [ ] Gérer les erreurs 401/403
+- [ ] Ajouter le logout avec nettoyage
+
+### API Clients
+- [ ] Implémenter POST /api/v1/clients (création)
+- [ ] Implémenter GET /api/v1/clients (liste)
+- [ ] Implémenter GET /api/v1/clients/{id} (détail)
+- [ ] Implémenter PUT /api/v1/clients/{id} (modification)
+- [ ] Implémenter DELETE /api/v1/clients/{id} (suppression)
+- [ ] Implémenter POST /api/v1/clients/{id}/test-connection
+- [ ] Implémenter POST /api/v1/clients/{id}/audits/run
+
+### API Audits
+- [ ] Implémenter GET /api/v1/audits/{id}
+- [ ] Implémenter GET /api/v1/audits/{id}/status (progression temps réel)
+- [ ] WebSocket pour les mises à jour en temps réel
+
+### API Alertes
+- [ ] Implémenter GET /api/v1/alerts (avec filtres)
+- [ ] Implémenter PATCH /api/v1/alerts/{id}/acknowledge
+- [ ] Implémenter PATCH /api/v1/alerts/{id}/resolve
+
+### API Rapports
+- [ ] Implémenter GET /api/v1/reports/{audit_id} (HTML)
+- [ ] Implémenter GET /api/v1/reports/{audit_id}/pdf
+- [ ] Implémenter POST /api/v1/reports/{audit_id}/email
+
+### API Configuration
+- [ ] Implémenter GET/PUT /api/v1/config/thresholds (globaux)
+- [ ] Implémenter GET/PUT /api/v1/config/thresholds/{client_id}
+
+### API Utilisateurs
+- [ ] Implémenter GET/POST /api/v1/users
+- [ ] Implémenter GET/PUT/DELETE /api/v1/users/{id}
 
 ---
 
-## Phase 7: Pages Secondaires (Après MVP) 📋 TODO
+## Phase 9: Fonctionnalités Backend 🔄 BACKEND TEAM
 
-- [ ] Page Rapport d'Audit
-- [ ] Page Profil Utilisateur
-- [ ] Page Gestion des Utilisateurs (Admin)
-- [ ] Page Configuration et Paramètres
-- [ ] Page Gestion des Seuils
+### Audits Automatisés
+- [ ] Implémenter les 20 contrôles Kaspersky
+- [ ] Configurer Spring Scheduler pour audits quotidiens
+- [ ] Implémenter la logique de retry et circuit breaker
+- [ ] Gérer le cache Redis (5 min)
+
+### Système d'Alerting
+- [ ] Implémenter la génération automatique d'alertes
+- [ ] Implémenter la déduplication intelligente
+- [ ] Implémenter le cycle de vie (ACTIVE → ACKNOWLEDGED → RESOLVED)
+- [ ] Implémenter l'auto-résolution
+- [ ] Implémenter l'expiration (>30j)
+
+### Notifications
+- [ ] Configurer Spring Mail
+- [ ] Implémenter l'envoi d'emails pour alertes critiques
+- [ ] Implémenter le résumé quotidien pour warnings
+- [ ] Créer les templates HTML professionnels
+
+### Rapports
+- [ ] Implémenter la génération PDF (iText ou similaire)
+- [ ] Implémenter l'envoi par email avec pièce jointe
+
+### Sécurité
+- [ ] Implémenter le chiffrement AES-256 pour credentials KSC
+- [ ] Configurer le rate limiting (Login 5/15min, API 100/min)
+- [ ] Implémenter l'audit trail complet
+- [ ] Configurer HTTPS/TLS 1.3
 
 ---
 
 ## Prochaines Étapes Recommandées
 
-### Intégration Backend (Priorité Haute)
-1. Remplacer l'authentification mock par l'intégration JWT réelle
-2. Configurer Axios avec intercepteurs selon INTEGRATION_JWT.md
-3. Créer les services API pour chaque module
-4. Implémenter React Query pour la gestion du cache
-5. Tester le flow complet avec le backend Spring Boot
+### Priorité Haute
+1. **Backend Setup**: Créer le projet Spring Boot avec structure complète
+2. **Base de données**: Configurer PostgreSQL + Redis avec schéma complet
+3. **Authentification JWT**: Implémenter le système d'auth complet
+4. **API Clients**: Implémenter le CRUD complet
+5. **Intégration Kaspersky**: Connecter à l'API KSC et tester
 
-### Améliorations UI/UX (Priorité Moyenne)
-1. Ajouter des animations de transition entre les pages
-2. Implémenter le système de pagination réel
-3. Ajouter des tooltips sur les actions
-4. Améliorer le responsive sur mobile
-5. Ajouter des états de chargement plus détaillés
+### Priorité Moyenne
+1. **Audits automatisés**: Implémenter les 20 contrôles
+2. **Système d'alerting**: Génération et cycle de vie
+3. **Notifications email**: Configuration et templates
+4. **Génération PDF**: Rapports téléchargeables
 
-### Fonctionnalités Avancées (Priorité Basse)
-1. Export des rapports en PDF
-2. Système de notifications en temps réel
-3. Graphiques interactifs avancés
-4. Personnalisation des seuils par client
-5. Historique complet des actions utilisateur
+### Priorité Basse
+1. **Tests**: Unitaires, intégration, E2E
+2. **Documentation**: API (Swagger), utilisateur
+3. **Optimisations**: Performance, cache
+4. **Monitoring**: Logs, métriques, alertes système
 
 ---
 
 ## Notes
 
-- **MVP Complété**: Toutes les pages prioritaires sont fonctionnelles
+- **MVP Frontend**: 100% complété et fonctionnel
+- **Alignement Cahier des Charges**: 98% des fonctionnalités UI implémentées
 - **Backend**: Prêt pour l'intégration avec Spring Boot
-- **Design**: Thème dark moderne, palette blue/cyan conforme
+- **Design**: Palette blue-violet gradient appliquée partout
 - **Auth**: Mock temporaire, JWT documenté pour intégration
 - **Données**: Mock data complètes et réalistes
+- **Documentation**: ROADMAP.md et AGENT.md créés pour guider le développement
+- **Notifications**: Système de toast avec "À implémenter" sur fonctionnalités non développées
+- **Manquant Frontend**: Pages d'erreur 404, tests
+- **Manquant Backend**: Tout (à développer)

@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Play } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { toast } from "@/lib/utils/toast"
 
 interface ClientsTableProps {
   clients: Client[]
@@ -25,6 +26,10 @@ export function ClientsTable({ clients }: ClientsTableProps) {
       default:
         return ""
     }
+  }
+
+  const handleRunAudit = (clientName: string) => {
+    toast.notImplemented(`Lancement d'audit pour ${clientName}`)
   }
 
   return (
@@ -76,7 +81,7 @@ export function ClientsTable({ clients }: ClientsTableProps) {
                       <ExternalLink className="h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button variant="ghost" size="sm">
+                  <Button variant="ghost" size="sm" onClick={() => handleRunAudit(client.name)}>
                     <Play className="h-4 w-4" />
                   </Button>
                 </div>

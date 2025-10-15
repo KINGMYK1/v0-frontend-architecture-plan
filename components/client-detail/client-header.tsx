@@ -3,11 +3,13 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import type { Client } from "@/lib/types"
-import { ArrowLeft, Play, Settings } from "lucide-react"
+import { ArrowLeft, Play, Settings, FileText } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { formatDistanceToNow } from "date-fns"
 import { fr } from "date-fns/locale"
+import { toast } from "@/lib/utils/toast"
 
 interface ClientHeaderProps {
   client: Client
@@ -15,6 +17,8 @@ interface ClientHeaderProps {
 }
 
 export function ClientHeader({ client, onRunAudit }: ClientHeaderProps) {
+  const router = useRouter()
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case "OK":
@@ -26,6 +30,12 @@ export function ClientHeader({ client, onRunAudit }: ClientHeaderProps) {
       default:
         return ""
     }
+  }
+
+  const handleRunAudit = () => {
+    onRunAudit()
+    toast.success("Audit lancé avec succès")
+    router.push(`/clients/${client.id}/audit`)
   }
 
   return (
@@ -58,11 +68,19 @@ export function ClientHeader({ client, onRunAudit }: ClientHeaderProps) {
         </div>
 
         <div className="flex gap-2">
-          <Button variant="outline" size="sm">
-            <Settings className="mr-2 h-4 w-4" />
-            Configurer
+          <Button variant="outline" size="sm" asChild>
+            <Link href={`/clients/${client.id}/audit`}>
+              <FileText className="mr-2 h-4 w-4" />
+              Voir le rapport
+            </Link>
           </Button>
-          <Button size="sm" onClick={onRunAudit}>
+          <Button variant="outline" size="sm" asChild>
+            <Link href={`/clients/${client.id}/thresholds`}>
+              <Settings className="mr-2 h-4 w-4" />
+              Configurer les seuils
+            </Link>
+          </Button>
+          <Button size="sm" className="bg-gradient-to-r from-primary to-secondary" onClick={handleRunAudit}>
             <Play className="mr-2 h-4 w-4" />
             Lancer un audit
           </Button>

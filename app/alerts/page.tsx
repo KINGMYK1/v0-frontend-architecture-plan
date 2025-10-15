@@ -88,25 +88,10 @@ export default function AlertsPage() {
 
         {/* Statistics */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <StatCard title="Total Alertes" value={stats.total} icon={AlertTriangle} />
-          <StatCard
-            title="Alertes Actives"
-            value={stats.active}
-            icon={AlertCircle}
-            className="border-destructive/20 bg-destructive/5"
-          />
-          <StatCard
-            title="Critiques"
-            value={stats.critical}
-            icon={AlertCircle}
-            className="border-destructive/20 bg-destructive/5"
-          />
-          <StatCard
-            title="Acquittées"
-            value={stats.acknowledged}
-            icon={Clock}
-            className="border-warning/20 bg-warning/5"
-          />
+          <StatCard title="Total Alertes" value={stats.total} icon={AlertTriangle} variant="info" />
+          <StatCard title="Alertes Actives" value={stats.active} icon={AlertCircle} variant="destructive" />
+          <StatCard title="Critiques" value={stats.critical} icon={AlertCircle} variant="destructive" />
+          <StatCard title="Acquittées" value={stats.acknowledged} icon={Clock} variant="warning" />
         </div>
 
         {/* Filters */}

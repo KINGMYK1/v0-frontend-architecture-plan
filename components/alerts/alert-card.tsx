@@ -27,14 +27,25 @@ export function AlertCard({ alert, onAcknowledge, onResolve, onViewDetails }: Al
     }
   }
 
-  const getSeverityColor = (severity: string) => {
+  const getSeverityBorderColor = (severity: string) => {
     switch (severity) {
       case "CRITICAL":
-        return "bg-destructive/10 text-destructive border-destructive/20"
+        return "border-l-destructive"
       case "WARNING":
-        return "bg-warning/10 text-warning border-warning/20"
+        return "border-l-warning"
       default:
-        return "bg-primary/10 text-primary border-primary/20"
+        return "border-l-primary"
+    }
+  }
+
+  const getSeverityIconColor = (severity: string) => {
+    switch (severity) {
+      case "CRITICAL":
+        return "bg-destructive/10 text-destructive"
+      case "WARNING":
+        return "bg-warning/10 text-warning"
+      default:
+        return "bg-primary/10 text-primary"
     }
   }
 
@@ -53,13 +64,17 @@ export function AlertCard({ alert, onAcknowledge, onResolve, onViewDetails }: Al
 
   return (
     <div
-      className={cn("rounded-lg border-2 bg-card p-6 transition-all hover:shadow-md", getSeverityColor(alert.severity))}
+      className={cn(
+        "rounded-lg border border-border bg-card p-6 transition-all hover:shadow-md",
+        "border-l-4",
+        getSeverityBorderColor(alert.severity),
+      )}
     >
       <div className="flex items-start gap-4">
         <div
           className={cn(
             "flex h-12 w-12 shrink-0 items-center justify-center rounded-lg",
-            getSeverityColor(alert.severity),
+            getSeverityIconColor(alert.severity),
           )}
         >
           {getSeverityIcon(alert.severity)}

@@ -29,25 +29,10 @@ export default function DashboardPage() {
 
         {/* KPI Cards */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <StatCard title="Total Clients" value={stats.totalClients} icon={Building2} />
-          <StatCard
-            title="Clients OK"
-            value={stats.clientsOk}
-            icon={CheckCircle2}
-            className="border-success/20 bg-success/5"
-          />
-          <StatCard
-            title="Avertissements"
-            value={stats.clientsWarning}
-            icon={AlertTriangle}
-            className="border-warning/20 bg-warning/5"
-          />
-          <StatCard
-            title="Critiques"
-            value={stats.clientsCritical}
-            icon={AlertCircle}
-            className="border-destructive/20 bg-destructive/5"
-          />
+          <StatCard title="Total Clients" value={stats.totalClients} icon={Building2} variant="info" />
+          <StatCard title="Clients OK" value={stats.clientsOk} icon={CheckCircle2} variant="success" />
+          <StatCard title="Avertissements" value={stats.clientsWarning} icon={AlertTriangle} variant="warning" />
+          <StatCard title="Critiques" value={stats.clientsCritical} icon={AlertCircle} variant="destructive" />
         </div>
 
         {/* Charts Row */}
