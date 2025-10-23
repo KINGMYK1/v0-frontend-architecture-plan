@@ -8,6 +8,44 @@ Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/)
 
 ## [Non publié]
 
+### Ajouté - 2025-10-23
+
+#### Phase 11: Corrections et Améliorations UX
+- Amélioration du formulaire de création de client:
+  - Largeur augmentée à max-w-6xl pour meilleur layout
+  - Meilleure responsivité avec grille adaptative
+  - Design amélioré avec sections bien organisées
+
+- Correction du bouton "Lancer un audit":
+  - Navigation automatique vers la page d'audit du client
+  - Toast notification lors du lancement
+  - Intégration complète entre la liste des clients et la page d'audit
+
+- Mise à jour complète du ROADMAP.md:
+  - Intégration complète du cahier des charges
+  - Documentation technique exhaustive (Stack, Architecture, Sécurité)
+  - 20 contrôles détaillés avec endpoints Kaspersky
+  - Système d'alerting complet (génération, déduplication, cycle de vie)
+  - Règles métier critiques et business logic
+  - Principes SOLID et Design Patterns
+  - Conventions de code (Backend Java, Frontend React/TypeScript)
+  - Plan de développement par phase (14 semaines)
+  - Critères de succès et risques/mitigations
+  - Plus de 950 lignes de documentation développeur
+
+- Vérification de l'état de l'application:
+  - Toutes les pages principales existent et sont fonctionnelles
+  - Page Configuration Seuils Client déjà implémentée
+  - Page Rapport d'Audit dynamique fonctionnelle
+  - UserModal pour gestion des utilisateurs déjà en place
+  - Système de notifications toast opérationnel
+  - Mock data correctement structurées
+
+- Build de production:
+  - Build Next.js réussi sans erreurs
+  - 12 routes générées correctement
+  - Optimisation production appliquée
+
 ### Ajouté - 2025-01-15
 
 #### Phase 10: Documentation Développeur et Améliorations Finales

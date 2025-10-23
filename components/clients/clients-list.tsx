@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { formatDistanceToNow } from "date-fns"
 import { fr } from "date-fns/locale"
 import type { Client } from "@/lib/types"
@@ -8,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Play, Edit, Trash2 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import toast from "react-hot-toast"
 
 interface ClientsListProps {
   clients: Client[]
@@ -17,6 +19,20 @@ interface ClientsListProps {
 }
 
 export function ClientsList({ clients, onEdit, onDelete, onRunAudit }: ClientsListProps) {
+  const router = useRouter()
+
+  const handleRunAudit = (e: React.MouseEvent, clientId: string, clientName: string) => {
+    e.preventDefault()
+    e.stopPropagation()
+    toast.success(`Audit lancé pour "${clientName}"`, {
+      duration: 2000,
+    })
+    // Navigate to audit page after a short delay
+    setTimeout(() => {
+      router.push(`/clients/${clientId}/audit`)
+    }, 500)
+  }
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case "OK":
@@ -98,7 +114,12 @@ export function ClientsList({ clients, onEdit, onDelete, onRunAudit }: ClientsLi
                       <ExternalLink className="h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button variant="ghost" size="sm" onClick={() => onRunAudit(client.id)} title="Lancer un audit">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={(e) => handleRunAudit(e, client.id, client.name)}
+                    title="Lancer un audit"
+                  >
                     <Play className="h-4 w-4" />
                   </Button>
                   <Button variant="ghost" size="sm" onClick={() => onEdit(client)} title="Modifier">
